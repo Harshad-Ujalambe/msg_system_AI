@@ -1,0 +1,56 @@
+// Threshold for "Overcrowded"
+const THRESHOLD = 40;
+
+function updateDashboard() {
+    const gateData = [
+        { id: 1, count: Math.floor(Math.random() * 60) },
+        { id: 2, count: Math.floor(Math.random() * 60) },
+        { id: 3, count: Math.floor(Math.random() * 60) },
+        { id: 4, count: Math.floor(Math.random() * 60) },
+        { id: 5, count: Math.floor(Math.random() * 60) }
+    ];
+
+    let bestGate = gateData[0];
+
+    gateData.forEach(gate => {
+        const card = document.getElementById(`gate-${gate.id}`);
+        const fill = card.querySelector('.fill');
+        const numText = card.querySelector('.num');
+        const msg = card.querySelector('.status-msg');
+
+        // Update Numbers and Bars
+        numText.innerText = gate.count;
+        let percentage = (gate.count / 60) * 100;
+        fill.style.width = `${percentage}%`;
+
+        // Logic for Overcrowding
+        if (gate.count > THRESHOLD) {
+            card.classList.add('overcrowded');
+            msg.innerText = "OVERCROWDED";
+        } else {
+            card.classList.remove('overcrowded');
+            msg.innerText = "Clear";
+            // Find the gate with minimum people
+            if (gate.count < bestGate.count) bestGate = gate;
+        }
+    });
+
+    // Update Top Alert for Users
+    const title = document.getElementById('recommendation-title');
+    const desc = document.getElementById('recommendation-desc');
+    const icon = document.getElementById('main-status-icon');
+
+    title.innerText = `Head to Gate 0${bestGate.id}`;
+    desc.innerText = `AI Analysis shows this gate has the shortest wait time (${bestGate.count} people).`;
+    icon.style.background = "var(--accent-safe)";
+    icon.style.boxShadow = "0 0 20px var(--accent-safe)";
+}
+
+// Run update every 3 seconds to simulate live feed
+setInterval(updateDashboard, 3000);
+updateDashboard();
+
+// Simple clock
+setInterval(() => {
+    document.getElementById('time-display').innerText = new Date().toLocaleTimeString();
+}, 1000);
