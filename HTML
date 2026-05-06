@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrowdSense | AI Management</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Crowd<span>Sense</span> AI</h1>
+            <p id="time-display"></p>
+        </header>
+
+        <!-- User Guidance Section -->
+        <section class="user-alert-box">
+            <div class="status-icon" id="main-status-icon"></div>
+            <div class="alert-text">
+                <h2 id="recommendation-title">Analyzing Gates...</h2>
+                <p id="recommendation-desc">Please wait while the AI processes live camera feeds.</p>
+            </div>
+        </section>
+
+        <!-- Management Dashboard -->
+        <main class="gate-grid">
+            <!-- Gate 1 -->
+            <div class="gate-card" id="gate-1">
+                <h3>Gate 01</h3>
+                <div class="count-display"><span class="num">0</span><span class="label">People</span></div>
+                <div class="progress-bar"><div class="fill"></div></div>
+                <p class="status-msg">Clear</p>
+            </div>
+            <!-- Gate 2 -->
+            <div class="gate-card" id="gate-2">
+                <h3>Gate 02</h3>
+                <div class="count-display"><span class="num">0</span><span class="label">People</span></div>
+                <div class="progress-bar"><div class="fill"></div></div>
+                <p class="status-msg">Clear</p>
+            </div>
+            <!-- Gate 3 -->
+            <div class="gate-card" id="gate-3">
+                <h3>Gate 03</h3>
+                <div class="count-display"><span class="num">0</span><span class="label">People</span></div>
+                <div class="progress-bar"><div class="fill"></div></div>
+                <p class="status-msg">Clear</p>
+            </div>
+            <!-- Gate 4 -->
+            <div class="gate-card" id="gate-4">
+                <h3>Gate 04</h3>
+                <div class="count-display"><span class="num">0</span><span class="label">People</span></div>
+                <div class="progress-bar"><div class="fill"></div></div>
+                <p class="status-msg">Clear</p>
+            </div>
+            <!-- Gate 5 -->
+            <div class="gate-card" id="gate-5">
+                <h3>Gate 05</h3>
+                <div class="count-display"><span class="num">0</span><span class="label">People</span></div>
+                <div class="progress-bar"><div class="fill"></div></div>
+                <p class="status-msg">Clear</p>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
